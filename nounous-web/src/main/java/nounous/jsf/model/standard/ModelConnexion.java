@@ -22,8 +22,8 @@ public class ModelConnexion {
 
 	@Inject
 	private CompteActif		compteActif;
-	@Inject
-	private ModelInfo		modelInfo;
+//	@Inject
+//	private ModelInfo		modelInfo;
 	@EJB
 	private IServiceConnexion serviceConnexion;
 
@@ -56,9 +56,11 @@ public class ModelConnexion {
 	        compteActif.setPseudo( dto.getPseudo() );
 	        compteActif.setRoles( dto.getRoles() );
 	        
-	    	modelInfo.setTitre( "Bienvenue" );
-	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + courant.getPseudo() +"'.");
-		    return "info";
+//	    	modelInfo.setTitre( "Bienvenue" );
+//	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + courant.getPseudo() +"'.");
+
+	        if( compteActif.isNounou() ) return "n_accueil";
+	        else return "a_accueil";
 
 	    } else {
 	        UtilJsf.messageError( "Pseudo ou mot de passe invalide." );

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/page-standard.xhtml">
+
+
+	<ui:define name="titre">Nounou</ui:define>
+	<ui:define name="head">
+		<h:link outcome="n_accueil" value="Accueil" />
+		<h:link outcome="n_contrat" value="Contrats" />
+		<h:link outcome="n_garde" value="Garde" />
+		<h:link outcome="n_stat" value="Statistique" />
+		<h:link outcome="n_planing" value="Planing" />
+	</ui:define>
+	<ui:define name="contenu">
+		<h3>Liste des enfants enregistrés</h3>
+
+
+		<h:dataTable styleClass="liste" value="#{modelEnfant.liste}"
+			var="item" rowClasses="impair, pair" columnClasses="left,left,center">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Id" />
+				</f:facet>
+				#{item.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Enfant" />
+				</f:facet>
+				#{item.nom}  #{item.prenom}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Sexe" />
+				</f:facet>
+				#{item.sexe}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Date de naissance" />
+				</f:facet>
+				#{item.dateNaissance}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Parent" />
+				</f:facet>
+				#{item.parent.nom}  #{item.parent.prenom}
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+
+</ui:composition>

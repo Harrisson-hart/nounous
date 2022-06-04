@@ -20,8 +20,8 @@ public class ModelConnexion {
 
 	@Inject
 	private CompteActif	compteActif;
-	@Inject
-	private ModelInfo	modelInfo;
+//	@Inject
+//	private ModelInfo	modelInfo;
 	@Inject
 	private Donnees		données;
 	@Inject
@@ -56,8 +56,8 @@ public class ModelConnexion {
 	        mapper.update(compteActif, compte);
 	        UtilJsf.messageInfo( "Connexion réussie" );
 	        
-	    	modelInfo.setTitre( "Bienvenue" );
-	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + compteActif.getPseudo() +"'.");
+//	    	modelInfo.setTitre( "Bienvenue" );
+//	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + compteActif.getPseudo() +"'.");
 
 		    return "info";
 

@@ -13,38 +13,45 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+//OK
 @Entity
-@Table( name = "compte" )
-public class Compte  {
+@Table(name = "compte")
+public class Compte {
 
-	
 	// Champs
 
 	@Id
-	@GeneratedValue( strategy = IDENTITY)
-	@Column( name = "idcompte")
-	private int			id;
-	
-	@Column( name = "pseudo")
-	private String		pseudo;
-	
-	@Column( name = "motdepasse")
-	private String		motDePasse;
-	
-	@Column( name = "email")
-	private String		email;
-	
-	@ElementCollection( fetch = EAGER )
-	@CollectionTable( name = "role", joinColumns = @JoinColumn( name = "idcompte" ) )
-	@Column( name = "role")
-	private List<String> roles = new ArrayList<>();	
-	
-	
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idcompte")
+	private int id;
+
+	@Column(name = "pseudo")
+	private String pseudo;
+
+	@Column(name = "motdepasse")
+	private String motDePasse;
+
+	@Column(name = "email")
+	private String email;
+
+	@ElementCollection(fetch = EAGER)
+	@CollectionTable(name = "role", joinColumns = @JoinColumn(name = "idcompte"))
+	@Column(name = "role")
+	private List<String> roles = new ArrayList<>();
+
+//	@OneToMany(mappedBy = "compte")
+//	@JoinColumn(name="idcontrat")
+//	private java.util.List<Contrat> contrats= new ArrayList<>();
+//
+//	@OneToMany
+//	@JoinColumn(name="idgarder")
+//	private java.util.List<Garder> garders= new ArrayList<>();
+
 	// Constructeurs
-	
+
 	public Compte() {
 	}
 
@@ -54,14 +61,13 @@ public class Compte  {
 		this.motDePasse = motDePasse;
 		this.email = email;
 	}
-	
-		
+
 	// Getters & setters
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -81,11 +87,11 @@ public class Compte  {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -98,7 +104,22 @@ public class Compte  {
 		this.roles = roles;
 	}
 
-    
+//	public List<Contrat> getContrats() {
+//		return contrats;
+//	}
+//
+//	public void setContrats(List<Contrat> contrats) {
+//		this.contrats = contrats;
+//	}
+//
+//	public List<Garder> getGarders() {
+//		return garders;
+//	}
+//
+//	public void setGarders(List<Garder> garders) {
+//		this.garders = garders;
+//	}
+
 	// equals() et hashcode()
 
 	@Override
@@ -122,5 +143,5 @@ public class Compte  {
 			return false;
 		return true;
 	}
-	
+
 }

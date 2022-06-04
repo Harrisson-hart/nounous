@@ -9,7 +9,10 @@
 		 <f:viewParam name="id" value="#{modelCompte.courant.id}" />
 		 <f:viewAction action="#{modelCompte.actualiserCourant()}" />
 	 </f:metadata>
-
+	<ui:define name="head">
+		<h:link outcome="a_accueil" value="Accueil" />
+		<h:link outcome="comptes" value="Compte" />
+	</ui:define>
     <ui:define name="titre">Compte</ui:define>
 
     <ui:define name="contenu">

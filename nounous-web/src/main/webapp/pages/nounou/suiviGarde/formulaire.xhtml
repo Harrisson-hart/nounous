@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">>
+
+	<ui:define name="head">
+		<h:link outcome="nounou" value="Accueil" />
+		<h:link outcome="listeContrat" value="Contrats" />
+		<h:link outcome="" value="Garde" />
+	</ui:define>
+	<ui:define name="titre">Nounou</ui:define>
+
+	<ui:define name="contenu">
+		<h1>Formulaire</h1>
+		<h:form>
+			<table class="form">
+				<tr>
+					<td><h:outputLabel for="id">Id :</h:outputLabel></td>
+					<!-- 					<td><h:inputText id="id" size="5" readonly="true" value="" />
+						<br /> <h:message for="id" errorClass="error" /></td> -->
+				</tr>
+
+				<tr>
+					<td><h:outputLabel for="libelle">Nom de l'enfant :</h:outputLabel></td>
+					<!-- 					<td><h:inputText id="libelle" size="25"
+							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message
+							for="libelle" errorClass="error" /></td> -->
+				</tr>
+				
+								<tr>
+					<td><h:outputLabel for="libelle">Date :</h:outputLabel></td>
+					<!-- 					<td><h:inputText id="libelle" size="25"
+							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message
+							for="libelle" errorClass="error" /></td> -->
+				</tr>
+				
+								<tr>
+					<td><h:outputLabel for="libelle">Heure d'arrivée :</h:outputLabel></td>
+					<!-- 					<td><h:inputText id="libelle" size="25"
+							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message
+							for="libelle" errorClass="error" /></td> -->
+				</tr>
+				
+								<tr>
+					<td><h:outputLabel for="libelle">Heure de départ :</h:outputLabel></td>
+					<!-- 					<td><h:inputText id="libelle" size="25"
+							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message
+							for="libelle" errorClass="error" /></td> -->
+				</tr>
+
+
+			</table>
+
+			<br />
+			<h:commandButton value="Valider"
+				action="" />
+			<h:button value="Retour" outcome="n_contrat" />
+		</h:form>
+	</ui:define>
+
+</ui:composition>

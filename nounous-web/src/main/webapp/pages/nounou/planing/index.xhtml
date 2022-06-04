@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">>
+
+	<ui:define name="head">
+		<h:link outcome="n_accueil" value="Accueil" />
+		<h:link outcome="n_contrat" value="Contrats" />
+		<h:link outcome="n_garde" value="Garde" />
+		<h:link outcome="n_stat" value="Statistique" />
+		<h:link outcome="n_planing" value="Planing" />
+		
+	</ui:define>
+     <ui:define name="titre">Nounou</ui:define>
+
+    <ui:define name="contenu">
+		<h1>Planing</h1>
+
+	</ui:define>
+
+</ui:composition>

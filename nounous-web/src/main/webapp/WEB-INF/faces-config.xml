@@ -6,10 +6,10 @@
   <navigation-case>
    <from-outcome>connexion</from-outcome>
    <to-view-id>/connexion.xhtml</to-view-id>
-   <redirect />
+   <redirect/>
   </navigation-case>
   <navigation-case>
-   <from-outcome>catégories</from-outcome>
+   <from-outcome>categories</from-outcome>
    <to-view-id>/pages/admin/categorie/liste.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
@@ -17,13 +17,40 @@
    <to-view-id>/pages/admin/compte/liste.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>personnes</from-outcome>
-   <to-view-id>/pages/user/personne/liste.xhtml</to-view-id>
+   <from-outcome>n_accueil</from-outcome>
+   <to-view-id>/pages/nounou/index.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>info</from-outcome>
-   <to-view-id>/pages/info.xhtml</to-view-id>
+   <from-outcome>n_garde</from-outcome>
+   <to-view-id>/pages/nounou/suiviGarde/index.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>n_contrat</from-outcome>
+   <to-view-id>/pages/nounou/contrat/liste.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>n_stat</from-outcome>
+   <to-view-id>/pages/nounou/statistique/index.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>n_planing</from-outcome>
+   <to-view-id>/pages/nounou/planing/index.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>n_contrat_form</from-outcome>
+   <to-view-id>/pages/nounou/contrat/formulaire.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>a_accueil</from-outcome>
+   <to-view-id>/pages/admin/index.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>n_suivi_form</from-outcome>
+   <to-view-id>/pages/nounou/suiviGarde/formulaire.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/pages/nounou/contrat/liste.xhtml</from-view-id>
  </navigation-rule>
  <application/>
 </faces-config>

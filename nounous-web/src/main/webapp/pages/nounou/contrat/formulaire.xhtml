@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">>
+	 <f:metadata>
+		<f:viewParam name="id" value="#{modelContrat.courant.id}" />
+		<f:viewAction action="#{modelContrat.actualiserCourant()}" />
+	</f:metadata>
+	<ui:define name="head">
+		<h:link outcome="n_accueil" value="Accueil" />
+		<h:link outcome="n_contrat" value="Contrats" />
+		<h:link outcome="n_garde" value="Garde" />
+		<h:link outcome="n_stat" value="Statistique" />
+		<h:link outcome="n_planing" value="Planing" />
+	</ui:define>
+	<ui:define name="titre">Nounou</ui:define>
+
+	<ui:define name="contenu">
+		<h3>Formulaire</h3>
+		<h:form>
+
+			<table class="form">
+				<tr>
+					<td><h:outputLabel for="id">IdNounou :</h:outputLabel></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelContrat.courant.id}" /> <br /> <h:message
+							for="id" errorClass="error" /></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel for="id">IdCompte :</h:outputLabel></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelContrat.courant.compte.id}" /> <br /> <h:message
+							for="id" errorClass="error" /></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel for="id">IdEnfant :</h:outputLabel></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelContrat.courant.enfant.id}" /> <br /> <h:message
+							for="id" errorClass="error" /></td>
+				</tr>
+				
+				<tr>
+					<td><h:outputLabel for="nom">Nom :</h:outputLabel></td>
+					<td><h:inputText id="nom" size="50"
+							value="#{modelContrat.courant.enfant.nom}" /> <br /> <h:message
+							for="email" errorClass="error" /></td>
+				</tr>
+
+			</table>
+
+			<br />
+			<h:commandButton value="Valider"
+				action="#{modelContrat.validerMiseAJour()}" />
+			<h:button value="Retour" outcome="n_contrat" />
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
