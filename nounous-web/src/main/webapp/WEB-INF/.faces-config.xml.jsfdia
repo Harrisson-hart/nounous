@@ -12,9 +12,9 @@
    <PROCESS-ITEM-OUTPUT ID="comptes::#pages#admin#compte#liste.xhtml"
     NAME="output2" PATH="/pages/admin/compte/liste.xhtml" SHAPE="-1,40"
     TARGET="rules:#pages#admin#compte#liste.xhtml" TITLE="comptes" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="n_accueil::#pages#nounou#index.xhtml"
-    NAME="output5" PATH="/pages/nounou/index.xhtml"
-    TARGET="rules:#pages#nounou#index.xhtml" TITLE="n_accueil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="n_accueil::#pages#nounou#accueil.xhtml"
+    NAME="output5" PATH="/pages/nounou/accueil.xhtml"
+    TARGET="rules:#pages#nounou#accueil.xhtml" TITLE="n_accueil" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="n_garde::#pages#nounou#suiviGarde#index.xhtml" NAME="output6"
     PATH="/pages/nounou/suiviGarde/index.xhtml"
@@ -28,9 +28,9 @@
     PATH="/pages/nounou/statistique/index.xhtml"
     TARGET="rules:#pages#nounou#statistique#index.xhtml" TITLE="n_stat" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="n_planing::#pages#nounou#planing#index.xhtml" NAME="output9"
-    PATH="/pages/nounou/planing/index.xhtml"
-    TARGET="rules:#pages#nounou#planing#index.xhtml" TITLE="n_planing" model-entity="JSFProcessItemOutput"/>
+    ID="n_planning::#pages#nounou#planning#index.xhtml" NAME="output9"
+    PATH="/pages/nounou/planning/index.xhtml"
+    TARGET="rules:#pages#nounou#planning#index.xhtml" TITLE="n_planning" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="n_contrat_form::#pages#nounou#contrat#formulaire.xhtml"
     NAME="output10" PATH="/pages/nounou/contrat/formulaire.xhtml"
@@ -52,8 +52,8 @@
   PATH="/pages/admin/compte/liste.xhtml" SHAPE="1504,56,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#admin#categorie#liste.xhtml"
   PATH="/pages/admin/categorie/liste.xhtml" SHAPE="1552,144,50,25" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#nounou#index.xhtml"
-  PATH="/pages/nounou/index.xhtml" SHAPE="728,56,50,25"
+ <PROCESS-ITEM NAME="rules:#pages#nounou#accueil.xhtml"
+  PATH="/pages/nounou/accueil.xhtml" SHAPE="728,56,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#nounou#contrat#liste.xhtml"
   PATH="/pages/nounou/contrat/liste.xhtml" SHAPE="192,312,50,41" model-entity="JSFProcessGroup">
@@ -61,10 +61,7 @@
    NAME="item" PATH="/pages/nounou/contrat/liste.xhtml" model-entity="JSFProcessItem"/>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#nounou#suiviGarde#index.xhtml"
-  PATH="/pages/nounou/suiviGarde/index.xhtml" SHAPE="288,464,50,25"
-  model-entity="JSFProcessGroup" persistent="true"/>
- <PROCESS-ITEM NAME="rules:#pages#nounou#planing#index.xhtml"
-  PATH="/pages/nounou/planing/index.xhtml" SHAPE="512,728,50,25"
+  PATH="/pages/nounou/suiviGarde/index.xhtml" SHAPE="72,568,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#nounou#statistique#index.xhtml"
   PATH="/pages/nounou/statistique/index.xhtml" SHAPE="320,664,50,25"
@@ -76,6 +73,8 @@
   PATH="/pages/admin/index.xhtml" SHAPE="1624,304,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#nounou#suiviGarde#formulaire.xhtml"
-  PATH="/pages/nounou/suiviGarde/formulaire.xhtml" SHAPE="192,568,50,25"
+  PATH="/pages/nounou/suiviGarde/formulaire.xhtml" SHAPE="80,512,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#nounou#planning#index.xhtml"
+  PATH="/pages/nounou/planning/index.xhtml" SHAPE="56,752,50,25" model-entity="JSFProcessGroup"/>
 </PROCESS>

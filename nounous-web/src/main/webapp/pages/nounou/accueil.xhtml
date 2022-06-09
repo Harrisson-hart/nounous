@@ -9,15 +9,23 @@
 	<ui:define name="titre">Nounou</ui:define>
 	<ui:define name="head">
 		<h:link outcome="n_accueil" value="Accueil" />
-		<h:link outcome="n_contrat" value="Contrats" />
-		<h:link outcome="n_garde" value="Garde" />
-		<h:link outcome="n_stat" value="Statistique" />
-		<h:link outcome="n_planing" value="Planing" />
+		<h:link outcome="n_contrat" value="Nouveau contrat" />
+		<h:link outcome="n_garde" value="Mes contrats" />
+		<h:link outcome="n_stat" value="Mon compte" />
+		<h:link outcome="n_planning" value="Planning" />
 	</ui:define>
 	<ui:define name="contenu">
-		<h3>Liste des enfants enregistrés</h3>
-
-
+		<br />
+		<h3>Bonjour Nounou #Name</h3>
+		<table class="home">
+			<tr>
+				<td><h:link outcome="n_suivi_form" target="_blank" >Garde du jour </h:link></td>
+				<td><h:outputLink target="_blank">Mes enfants</h:outputLink></td>
+				<td><h:link outcome="n_garde" target="_blank">Mes gardes</h:link></td>
+			</tr>
+		</table>
+		
+		<br />
 		<h:dataTable styleClass="liste" value="#{modelEnfant.liste}"
 			var="item" rowClasses="impair, pair" columnClasses="left,left,center">
 			<h:column>

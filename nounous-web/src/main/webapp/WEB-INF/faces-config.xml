@@ -18,7 +18,7 @@
   </navigation-case>
   <navigation-case>
    <from-outcome>n_accueil</from-outcome>
-   <to-view-id>/pages/nounou/index.xhtml</to-view-id>
+   <to-view-id>/pages/nounou/accueil.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>n_garde</from-outcome>
@@ -33,8 +33,8 @@
    <to-view-id>/pages/nounou/statistique/index.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>n_planing</from-outcome>
-   <to-view-id>/pages/nounou/planing/index.xhtml</to-view-id>
+   <from-outcome>n_planning</from-outcome>
+   <to-view-id>/pages/nounou/planning/index.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>n_contrat_form</from-outcome>

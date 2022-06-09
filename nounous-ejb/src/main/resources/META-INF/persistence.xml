@@ -29,6 +29,7 @@
       <class>nounous.ejb.data.Garder</class>
       <class>nounous.ejb.data.Parent</class>
       <class>nounous.ejb.data.Contrat</class>
+      <class>nounous.ejb.data.Compte</class>
 
       
       <properties>

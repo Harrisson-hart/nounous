@@ -36,9 +36,7 @@
 			</h:form>
 		</div>
 
-		<h1>
-			<ui:insert name="titre">Titre absent</ui:insert>
-		</h1>
+		
 
 		<h:messages errorClass="error" globalOnly="false" infoClass="info"
 			styleClass="messages" warnClass="warning" />
@@ -52,7 +50,7 @@
 		<div id="footer">
 			©
 			<h:outputText value="#{utilJsf.now()}">
-				<f:convertDateTime pattern="yyyy" />
+				<f:convertDateTime pattern="dd-MM-yyyy" />
 			</h:outputText>
 			- #{initParam['site.name']}
 		</div>
