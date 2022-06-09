@@ -14,90 +14,103 @@ import nounous.commun.exception.ExceptionValidation;
 import nounous.commun.service.IServiceGarder;
 import nounous.jsf.data.Garder;
 import nounous.jsf.data.mapper.IMapper;
+import nounous.jsf.util.CompteActif;
 import nounous.jsf.util.UtilJsf;
-
 
 @SuppressWarnings("serial")
 @Named
 @ViewScoped
 public class ModelGarder implements Serializable {
 
-	
 	// Champs
+
+	private List<Garder> liste;
 	
-	private List<Garder>	liste;
-	
-	private Garder			courant;
-	
+	private List<Garder>	listeg;
+
+	private Garder courant;
+
 	@EJB
-	private IServiceGarder	serviceGarder;
+	private IServiceGarder serviceGarder;
+
+	@Inject
+	private IMapper mapper;
 	
 	@Inject
-	private IMapper			mapper;
+	private CompteActif		compteActif;
 
-	
-	// Getters 
-	
+	// Getters
+
 	public List<Garder> getListe() {
-		if ( liste == null ) {
+		if (liste == null) {
 			liste = new ArrayList<>();
-			for ( DtoGarder dto : serviceGarder.listerTout() ) {
-				liste.add( mapper.map( dto ) );
+			for (DtoGarder dto : serviceGarder.listerTout()) {
+				liste.add(mapper.map(dto));
 			}
 		}
 		return liste;
 	}
-	
-		public Garder getCourant() {
-			if ( courant == null ) {
-				courant = new Garder();
-			}
-			return courant;
+
+	public Garder getCourant() {
+		if (courant == null) {
+			courant = new Garder();
 		}
+		return courant;
+	}
 	
-	
+	public List<Garder> getListeg() {
+		if ( listeg == null ) {
+			listeg = new ArrayList<>();
+			for ( DtoGarder dto : serviceGarder.listerPourNounou(compteActif.getId()) ) {
+				
+				listeg.add( mapper.map( dto ) );
+			}
+		}
+		
+		return listeg;
+	}
+
 	// Initialisaitons
-	
+
 	public String actualiserCourant() {
-		if ( courant != null ) {
-			DtoGarder dto = serviceGarder.retrouver( courant.getId() ); 
-			if ( dto == null ) {
-				UtilJsf.messageError( "Le garder demandé n'existe pas" );
+		if (courant != null) {
+			DtoGarder dto = serviceGarder.retrouver(courant.getId());
+			if (dto == null) {
+				UtilJsf.messageError("Le garder demandé n'existe pas");
 				return "test/liste";
 			} else {
-				courant = mapper.map( dto );
+				courant = mapper.map(dto);
 			}
 		}
 		return null;
 	}
-	
-	
+
 	// Actions
-	
+
 	public String validerMiseAJour() {
 		try {
-			if ( courant.getId() == null) {
-				serviceGarder.inserer( mapper.map(courant) );
+			if (courant.getId() == null) {
+				serviceGarder.inserer(mapper.map(courant));
 			} else {
-				serviceGarder.modifier( mapper.map(courant) );
+				serviceGarder.modifier(mapper.map(courant));
 			}
-			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
+			UtilJsf.messageInfo("Mise à jour effectuée avec succès.");
 			return "liste";
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);
 			return null;
 		}
 	}
-	
-	public String supprimer( Garder item ) {
+
+	public String supprimer(Garder item) {
 		try {
-			serviceGarder.supprimer( item.getId() );
+			serviceGarder.supprimer(item.getId());
 			liste.remove(item);
-			UtilJsf.messageInfo( "Suppression effectuée avec succès." );
+			UtilJsf.messageInfo("Suppression effectuée avec succès.");
 		} catch (ExceptionValidation e) {
-			UtilJsf.messageError( e ); 
+			UtilJsf.messageError(e);
 		}
 		return null;
 	}
-	
+
 }

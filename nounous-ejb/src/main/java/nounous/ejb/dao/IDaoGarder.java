@@ -17,4 +17,6 @@ public interface IDaoGarder {
 
 	List<Garder> listerTout();
 
+	List<Garder> listerPourNounou(int idCompte);
+
 }

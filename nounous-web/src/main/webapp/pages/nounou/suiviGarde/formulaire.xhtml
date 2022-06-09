@@ -4,76 +4,80 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://richfaces.org/rich">
-    
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{modelGarder.courant.id}" />
+		<f:viewAction action="#{modelGarder.actualiserCourant()}" />
+	</f:metadata>
+
 	<ui:define name="head">
 		<h:link outcome="n_accueil" value="Accueil" />
 		<h:link outcome="n_contrat" value="Nouveau contrat" />
 		<h:link outcome="n_garde" value="Mes contrats" />
-		<h:link outcome="n_stat" value="Mon compte" />
 		<h:link outcome="n_planning" value="Planning" />
+		<h:link outcome="n_stat" value="Mon compte" />
 	</ui:define>
 
 	<ui:define name="titre">Nounou - Gardes</ui:define>
 
-	
+
 
 	<ui:define name="contenu">
-		<h1>Suivi de #NomEnfant</h1>
+		<h1>Suivi de #{modelGarder.courant.enfant.prenom}</h1>
 		<h:form>
 			<table class="form">
 				<tr>
 					<td><h:outputLabel for="id">Id :</h:outputLabel></td>
-					<td><h:inputText id="id" size="5" readonly="true" value="" />
-						<br /> <h:message for="id" errorClass="error" /></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelGarder.courant.id}" /> <br /> <h:message for="id"
+							errorClass="error" /></td>
 				</tr>
 
 				<tr>
 					<td><h:outputLabel for="nomEnfant">Nom de l'enfant :</h:outputLabel></td>
- 					<td><h:inputText id="nomEnfant" size="25" />
-<!-- 							value="#{modelEnfant.courant.nom} #{modelEnfant.courant.prenom}" /> <br /> <h:message -->
-<!-- 							for="nomEnfant" errorClass="error" /> -->
-					</td>
+					<td><h:inputText id="nomEnfant" size="25"
+							value="#{modelGarder.courant.enfant.nom} #{modelGarder.courant.enfant.prenom}" />
+						<br /> <h:message for="nomEnfant" errorClass="error" /></td>
 				</tr>
 
 				<tr>
 					<td><h:outputLabel for="date">Date :</h:outputLabel></td>
-					<td><input type="date" id="date" size="25" value="#{utilJsf.now()}"/>
-<!-- 							<f:convertDateTime pattern="dd-MM-yyyy" /> -->
-													
-						<br /> <h:message
-							for="date" errorClass="error" /></td>
+					<td><h:inputText a:type="date" id="date" size="25"
+							value="#{modelGarder.courant.dateArrivee}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText></td>
 				</tr>
 
 				<tr>
 					<td><h:outputLabel for="heureArr">Heure d'arrivée :</h:outputLabel></td>
- 					<td><input type="time" id="heureArr" size="25" value="{utilJsf.now()}" />
-<!-- 							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message -->
-<!-- 							for="heureArr" errorClass="error" /> -->
-					</td>
+					<td><h:inputText a:type="time" id="heureArr" size="25"
+							value="#{modelGarder.courant.heureArrivee}">
+<!-- 							<f:convertDateTime type="time" timeStyle="short"/> -->
+						</h:inputText> 
+						<!-- 							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message -->
+						<!-- 							for="heureArr" errorClass="error" /> --></td>
 				</tr>
 				<tr>
-					<td><h:outputLabel for="aMange">A mangé :</h:outputLabel></td>
-					<td><h:selectOneRadio >
-							<f:selectItem itemValue = "true" itemLabel = "Oui" />
-							<f:selectItem itemValue = "false" itemLabel = "Non" />
-						</h:selectOneRadio>
-<!-- 							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message -->
-<!-- 							for="aMange" errorClass="error" /> -->
-					</td>
+					<td><h:outputLabel for="aMange">Repas pris ? </h:outputLabel></td>
+					<td><h:selectOneRadio value="#{modelGarder.courant.aManger}">
+							<f:selectItem itemValue="true" itemLabel="Oui" />
+							<f:selectItem itemValue="false" itemLabel="Non" />
+						</h:selectOneRadio></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="heureDep">Heure de départ :</h:outputLabel></td>
- 					<td><input type="time" id="heureDep" size="25" />
-<!-- 							value="#{modelCategorie.courant.libelle}" /> <br /> <h:message -->
-<!-- 							for="heureDep" errorClass="error" /> -->
-					</td>
+					<td><h:inputText a:type="time" id="heureDep" size="25"
+							value="#{modelGarder.courant.heureDepart}">
+<!-- 							<f:convertDateTime type="time" timeStyle="short"/> -->
+						</h:inputText></td>
 				</tr>
 
 			</table>
 
 			<br />
-			<h:commandButton value="Enregistrer" />
+			<h:commandButton value="Enregistrer"
+				action="#{modelGarder.validerMiseAJour()}" />
 			<h:button value="Retour" outcome="n_accueil" />
 		</h:form>
 	</ui:define>

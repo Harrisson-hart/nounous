@@ -48,6 +48,10 @@
    <from-outcome>n_suivi_form</from-outcome>
    <to-view-id>/pages/nounou/suiviGarde/formulaire.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>n_info</from-outcome>
+   <to-view-id>/pages/nounou/info.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/pages/nounou/contrat/liste.xhtml</from-view-id>

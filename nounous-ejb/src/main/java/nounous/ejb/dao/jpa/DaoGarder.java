@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import nounous.ejb.dao.IDaoGarder;
+import nounous.ejb.data.Contrat;
 import nounous.ejb.data.Garder;
 
 
@@ -58,6 +59,16 @@ public class DaoGarder implements IDaoGarder {
 		em.clear();
 		var jpql = "SELECT c FROM Garder c";
 		var query = em.createQuery( jpql, Garder.class );
+		return query.getResultList();
+	}
+	
+	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
+	public List<Garder> listerPourNounou( int idCompte) {
+		em.clear();
+		var jpql = "SELECT g FROM Garder g Join g.Compte co WHERE co.id=:idCompte";
+		var query = em.createQuery( jpql, Garder.class );
+		query.setParameter(idCompte, idCompte);
 		return query.getResultList();
 	}
 	

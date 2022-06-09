@@ -6,22 +6,22 @@
 	template="/template/page-standard.xhtml">
 
 
-	<ui:define name="titre">Nounou</ui:define>
+	<ui:define name="titre">Nounou - Accueil</ui:define>
 	<ui:define name="head">
 		<h:link outcome="n_accueil" value="Accueil" />
 		<h:link outcome="n_contrat" value="Nouveau contrat" />
 		<h:link outcome="n_garde" value="Mes contrats" />
-		<h:link outcome="n_stat" value="Mon compte" />
 		<h:link outcome="n_planning" value="Planning" />
+		<h:link outcome="info" value="Mon compte" />		
 	</ui:define>
 	<ui:define name="contenu">
 		<br />
-		<h3>Bonjour Nounou #Name</h3>
+		<h3>Bonjour Nounou #{modelConnexion.courant.pseudo}</h3>
 		<table class="home">
 			<tr>
-				<td><h:link outcome="n_suivi_form" target="_blank" >Garde du jour </h:link></td>
-				<td><h:outputLink target="_blank">Mes enfants</h:outputLink></td>
-				<td><h:link outcome="n_garde" target="_blank">Mes gardes</h:link></td>
+				<td><h:link outcome="n_suivi_form"  >Garde du jour </h:link></td>
+				<td><h:outputLink >Mes enfants</h:outputLink></td>
+				<td><h:link outcome="n_garde" >Mes gardes</h:link></td>
 			</tr>
 		</table>
 		

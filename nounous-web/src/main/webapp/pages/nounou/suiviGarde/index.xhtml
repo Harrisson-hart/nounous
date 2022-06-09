@@ -12,13 +12,13 @@
 		<h:link outcome="n_stat" value="Mon compte" />
 		<h:link outcome="n_planning" value="Planning" />
 	</ui:define>
-	
+
 	<ui:define name="titre">Nounou - Gardes</ui:define>
 
 	<ui:define name="contenu">
 		<h3>Mes gardes</h3>
 		<h:form>
-			<h:dataTable styleClass="liste" value="#{modelGarder.liste}"
+			<h:dataTable styleClass="liste" value="#{modelGarder.listeg}"
 				var="item" rowClasses="impair, pair"
 				columnClasses="left,left,center">
 				<h:column>
@@ -31,7 +31,9 @@
 					<f:facet name="header">
 						<h:outputText value="Date" />
 					</f:facet>
-				#{item.dateArrivee}
+				 <h:outputText value="#{item.dateArrivee}">
+				 	<f:convertDateTime pattern="dd-MM-yyyy" />
+				 </h:outputText>
 			</h:column>
 				<h:column>
 					<f:facet name="header">
@@ -47,23 +49,39 @@
 			</h:column>
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Repas pris ?" />
+					</f:facet>
+				<h:outputText value="#{item.aManger? 'Oui' : 'Non'}"/>
+			</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Heure de départ" />
 					</f:facet>
 				#{item.heureDepart}
 			</h:column>
 
-				<h:column>
+			<h:column>
 					<f:facet name="header">
-						<h:outputText value="Repas pris ?" />
+						<h:outputText value="Actions" />
 					</f:facet>
-				#{item.aManger}
-			</h:column>
+					<h:button outcome="formulaire?id=#{item.id}"
+						image="#{ resource['images:modifier.png'] }" title="Modifier"
+						styleClass="image-action" />
+					<h:commandButton action="#{modelGarder.supprimer(item)}"
+						value="Supprimer"
+						onclick="return confirm('Confirmez-vous la suppression ?')"
+						image="#{ resource['images:supprimer.png'] }" title="Supprimer"
+						styleClass="image-action">
+						<f:ajax render="@form" execute="@form" />
+					</h:commandButton>
+
+				</h:column>
 
 			</h:dataTable>
 
 			<br />
 			<h:button value="Ajouter" outcome="n_contrat_form" />
-
+			<h:button value="Annuler" outcome="n_accueil" />
 		</h:form>
 
 	</ui:define>

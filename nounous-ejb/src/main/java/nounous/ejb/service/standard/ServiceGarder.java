@@ -10,10 +10,12 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.inject.Inject;
 
+import nounous.commun.dto.DtoContrat;
 import nounous.commun.dto.DtoGarder;
 import nounous.commun.exception.ExceptionValidation;
 import nounous.commun.service.IServiceGarder;
 import nounous.ejb.dao.IDaoGarder;
+import nounous.ejb.data.Contrat;
 import nounous.ejb.data.Garder;
 import nounous.ejb.data.mapper.IMapperEjb;
 
@@ -62,4 +64,13 @@ public class ServiceGarder implements IServiceGarder {
 		return liste;
 	}
 
+	@Override
+	@TransactionAttribute(NOT_SUPPORTED)
+	public List<DtoGarder> listerPourNounou(int idCompte) {
+		List<DtoGarder> liste = new ArrayList<>();
+		for (Garder garder : daoGarder.listerPourNounou(idCompte)) {
+			liste.add(mapper.map(garder));
+		}
+		return liste;
+	}
 }

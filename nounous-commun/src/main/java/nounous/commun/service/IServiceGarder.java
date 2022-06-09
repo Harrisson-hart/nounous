@@ -18,4 +18,6 @@ public interface IServiceGarder {
 
 	List<DtoGarder>	listerTout() ;
 
+	List<DtoGarder> listerPourNounou(int idCompte);
+
 }

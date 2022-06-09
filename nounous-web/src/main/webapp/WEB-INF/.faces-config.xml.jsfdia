@@ -44,6 +44,9 @@
     NAME="output12" PATH="/pages/nounou/suiviGarde/formulaire.xhtml"
     TARGET="rules:#pages#nounou#suiviGarde#formulaire.xhtml"
     TITLE="n_suivi_form" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="n_info::#pages#nounou#info.xhtml"
+    NAME="output3" PATH="/pages/nounou/info.xhtml"
+    TARGET="rules:#pages#nounou#info.xhtml" TITLE="n_info" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -77,4 +80,7 @@
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#nounou#planning#index.xhtml"
   PATH="/pages/nounou/planning/index.xhtml" SHAPE="56,752,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nounou#info.xhtml"
+  PATH="/pages/nounou/info.xhtml" SHAPE="1512,664,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

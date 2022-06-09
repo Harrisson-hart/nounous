@@ -63,6 +63,7 @@ public class ServiceContrat implements IServiceContrat {
 	}
 
 	@Override
+	@TransactionAttribute(NOT_SUPPORTED)
 	public List<DtoContrat> listerPourNounou(int idCompte) {
 		List<DtoContrat> liste = new ArrayList<>();
 		for (Contrat contrat : daoContrat.listerPourNounou(idCompte)) {
